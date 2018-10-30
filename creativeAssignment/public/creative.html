@@ -1,0 +1,91 @@
+<html>
+    <head>
+        <link href="https://fonts.googleapis.com/css?family=Montserrat:400,700" rel="stylesheet" type="text/css">
+        <link href="https://fonts.googleapis.com/css?family=Lato:400,700,400italic,700italic" rel="stylesheet" type="text/css">
+        <link rel="stylesheet" href="./stylesheets/style.css">
+    </head>
+    
+    <body id="body-style-one">
+        <section class="page">
+            <section class="section-body">
+                <h1>Lab 4</h1>
+                <br>
+            <p>Weather</p> <br>
+            </section>
+            <section class="tab">
+                <br><br><br><br>
+
+            </section>
+            <section id="find" style="background-color: white;">
+                <header class="section-header" style="background-color: white;">
+                    <h2>Weather Info</h2>
+                    <hr class="line"/>
+                </header>
+                <div class="section-body">
+                <form>
+                    Enter A Utah City: <input type="text" id="cityfield" value=""><br>
+                    <br>
+                    Suggestion: <span id="txtHint">Empty</span>
+                </form>
+    
+   
+            
+            <section id="experiences" style="background-color: #FCF7F8;">
+                <header class="section-header"  style="background-color: #FCF7F8;">
+                    <h2>Owl Dictionary</h2>
+                    <hr class="line"/>
+                    
+                    <form>
+                    Enter a word: <input type="text" id="owlform" value=""><br>
+                    <button id="owlbutton">Submit</button>
+                    <br>
+                    <br>
+                    Definitions: <br> <span id="owldef">Empyt</span>
+                    </form>
+                </header>
+            </section>
+        
+         </section>
+        
+        
+      
+        
+        
+    <script src="https://code.jquery.com/jquery-3.2.1.min.js">
+    </script>
+   
+   
+    <script>
+    $( "#owlbutton" ).click(function(event) {
+        event.preventDefault();
+        var url = "owl?q="+$("#owlform").val();
+        $.getJSON(url,function(data) {
+            console.log(data);
+          var everything;
+          everything = "<ul>";
+          $.each(data, function(i,item) {
+             everything += "<li> "+data[i].defenition + "</li>";
+          });
+          everything += "</ul>";
+          $("#owldef").html(everything);
+        });
+    });
+    
+    </script>
+    <script>
+    $( "#cityfield" ).keyup(function() {
+     var url = "getcity?q="+$("#cityfield").val();
+      $.getJSON(url,function(data) {
+        var everything;
+        everything = "<ul>";
+        $.each(data, function(i,item) {
+          everything += "<li> "+data[i].city;
+        });
+        everything += "</ul>";
+        $("#txtHint").html(everything);
+      });
+    });
+
+</script>
+    </body>
+</html>
