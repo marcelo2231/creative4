@@ -1,8 +1,89 @@
+/********************
+    Default Styles
+ ********************/
+web{
+    
+}
 body {
-  padding: 50px;
-  font: 14px "Lucida Grande", Helvetica, Arial, sans-serif;
+    margin-top:0;
+    color: rgb(50, 50, 50);
+    background-color: white;
+    font-family: 'Montserrat';
+    margin-left: 10%;
+    margin-right: 10%;
+    position: relative;
+    text-align: center;
+    list-style-position: inside;
+    background: url(../images/background.jpg) no-repeat center center fixed;
+    -webkit-background-size: cover;
+    -moz-background-size: cover;
+    -o-background-size: cover;
+    background-size: cover;
 }
 
+body.body-style-one{
+    background-color: grey;
+}
+
+h1, h2, h3, h4, h5, h6 {
+    font-family: 'Montserrat';;
+}
+img {
+    max-width: 100%;
+    max-height: 100%;
+}
 a {
-  color: #00B7FF;
+    text-decoration: none;
+}
+
+button {
+    background-color: #A31621;
+    border: none;
+    color: white;
+    padding: 15px 32px;
+    text-align: center;
+    text-decoration: none;
+    display: inline-block;
+    font-size: 13px;
+}
+
+/********************
+    Page
+ ********************/
+.page section {
+    padding: 40px;
+}
+.page .section-header,
+.page .section-body-two {
+    margin: auto;
+    width: auto;
+    padding-left: 40px;
+    padding-right: 40px;
+    background-color: #FCF7F8;
+}
+.page .section-body {
+    margin: auto;
+    width: auto;
+    padding-left: 40px;
+    padding-right: 40px;
+    background-color: white;
+}
+.page-header-image-full {
+    overflow: hidden;
+    height: 100vh;
+    /*max-width: 100%;*/
+}
+.page-header-image-full img {
+    min-width: 100%;
+    max-width: inherit;
+}
+.page-title {
+    text-align: center;
+    margin: 5vh;
+    font-weight: 700;
+    font-size: 52px;
+}
+.separator {
+    background-color: #DFF3E4;
+    width: auto;
 }

@@ -6,86 +6,51 @@
     </head>
     
     <body id="body-style-one">
-        <section class="page">
-            <section class="section-body">
-                <h1>Lab 4</h1>
-                <br>
-            <p>Weather</p> <br>
-            </section>
-            <section class="tab">
-                <br><br><br><br>
+     <section class="page">
+        <section class="section-body">
+            <h1>Creative Assignment 4</h1>
+            <br>
+            <p>Api Call</p> <br>
+        </section>
+        <section class="separator">
+            <br><br><br><br>
 
-            </section>
-            <section id="find" style="background-color: white;">
-                <header class="section-header" style="background-color: white;">
-                    <h2>Weather Info</h2>
-                    <hr class="line"/>
-                </header>
-                <div class="section-body">
-                <form>
-                    Enter A Utah City: <input type="text" id="cityfield" value=""><br>
-                    <br>
-                    Suggestion: <span id="txtHint">Empty</span>
-                </form>
-    
-   
-            
-            <section id="experiences" style="background-color: #FCF7F8;">
-                <header class="section-header"  style="background-color: #FCF7F8;">
+        </section>
+          <section id="experiences" style="background-color: #FFFFFF;">
+                <header class="section-header"  style="background-color: #FFFFFF;">
                     <h2>Owl Dictionary</h2>
                     <hr class="line"/>
                     
                     <form>
-                    Enter a word: <input type="text" id="owlform" value=""><br>
-                    <button id="owlbutton">Submit</button>
+                    Enter a word: <input type="text" id="apiform" value=""><br>
+                    <button id="apibutton">Submit</button>
                     <br>
                     <br>
-                    Definitions: <br> <span id="owldef">Empyt</span>
+                    The response from the api call: <br> <span id="horoscopo">Empty</span>
                     </form>
                 </header>
             </section>
-        
-         </section>
-        
-        
-      
-        
-        
+        </section>
+    
     <script src="https://code.jquery.com/jquery-3.2.1.min.js">
-    </script>
-   
-   
+    </script>     
     <script>
-    $( "#owlbutton" ).click(function(event) {
+    $( "#apibutton" ).click(function(event) {
         event.preventDefault();
-        var url = "owl?q="+$("#owlform").val();
+        var url = "api?q="+$("#apiform").val();
+        console.log(url);
         $.getJSON(url,function(data) {
             console.log(data);
           var everything;
           everything = "<ul>";
           $.each(data, function(i,item) {
-             everything += "<li> "+data[i].defenition + "</li>";
+             everything += "<li> "+data[i] + "</li>"; // CHANGE WHAT IN THE DATA WE ARE DISPLAYING: Data[i].Name
           });
           everything += "</ul>";
-          $("#owldef").html(everything);
+          $("#horoscopo").html(everything);
         });
     });
     
     </script>
-    <script>
-    $( "#cityfield" ).keyup(function() {
-     var url = "getcity?q="+$("#cityfield").val();
-      $.getJSON(url,function(data) {
-        var everything;
-        everything = "<ul>";
-        $.each(data, function(i,item) {
-          everything += "<li> "+data[i].city;
-        });
-        everything += "</ul>";
-        $("#txtHint").html(everything);
-      });
-    });
-
-</script>
     </body>
 </html>
