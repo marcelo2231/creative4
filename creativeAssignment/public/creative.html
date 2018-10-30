@@ -22,11 +22,12 @@
                     <hr class="line"/>
                     
                     <form>
-                    Enter a word: <input type="text" id="apiform" value=""><br>
+                    Enter your name: <input type="text" id="apiform" value=""><br>
+                    Enter the name of your loved one: <input type="text" id="apitwoform" value=""><br>
                     <button id="apibutton">Submit</button>
                     <br>
                     <br>
-                    The response from the api call: <br> <span id="horoscopo">Empty</span>
+                    Probably of he/she actually being the one: <br> <span id="horoscopo">Empty</span>
                     </form>
                 </header>
             </section>
@@ -37,15 +38,14 @@
     <script>
     $( "#apibutton" ).click(function(event) {
         event.preventDefault();
-        var url = "api?q="+$("#apiform").val();
+        var url = "api?q="+$("#apiform").val() + "&sname=" +$('#apitwoform').val();
         console.log(url);
         $.getJSON(url,function(data) {
             console.log(data);
           var everything;
           everything = "<ul>";
-          $.each(data, function(i,item) {
-             everything += "<li> "+data[i] + "</li>"; // CHANGE WHAT IN THE DATA WE ARE DISPLAYING: Data[i].Name
-          });
+             everything += "<li> "+ "Percentage of working out: " + data.percentage + "</li>";
+             everything += "<li> "+ "Result: " + data.result + "</li>";
           everything += "</ul>";
           $("#horoscopo").html(everything);
         });
